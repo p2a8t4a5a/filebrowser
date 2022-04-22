@@ -91,9 +91,9 @@ func resourceDeleteHandler(fileCache FileCache) handleFunc {
 }
 
 var resourcePostPutHandler = withUser(func(w http.ResponseWriter, r *http.Request, d *data) (int, error) {
-	if !d.user.Perm.Create && r.Method == http.MethodPost {
-		return http.StatusForbidden, nil
-	}
+	// if !d.user.Perm.Create && r.Method == http.MethodPost {
+	// 	return http.StatusForbidden, nil
+	// }
 
 	if !d.user.Perm.Modify && r.Method == http.MethodPut {
 		return http.StatusForbidden, nil
